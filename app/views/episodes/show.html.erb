@@ -1,38 +1,13 @@
-<p id="notice"><%= notice %></p>
-
 <h3>
   <%= @episode.name %><br>
-  <small><%= @episode.series.name if @episode.series %></small>
+  <%= @episode.series_name %>
 </h3>
 
-<div class="canvas" style="font: 8px/4px monospace">
-  <% if @episode.snowy_mountains.present? %>
-    <%= paint_3peak_mountain %>
-  <% end %>
-</div>
+<%= @episode.render_mountain %>
 
+<%= @episode.render_critters %>
 
-<% @episode.critters.to_i.times do %>
-  <% @critter_count = @critter_count.to_i + 1 %>
-  <%= image_tag "squirrel.jpg",
-    class: 'critter-background',
-    width: 100,
-    style: "
-      position: fixed;
-      top:  #{150 * @critter_count}px;
-      left: -100px;
-    "
-  %>
-<% end %>
-
-<div class="forest">
-  <% 1.upto(@episode.happy_little_trees.to_i) do |number| %>
-    <% if @episode.cabin? && number == @episode.happy_little_trees/3 %>
-      🏡
-    <% end %>
-    🌲
-  <% end %>
-</div>
+<%= @episode.render_forest %>
 
 <%= link_to 'Edit', edit_episode_path(@episode) %> |
 <%= link_to 'Back', episodes_path %>
