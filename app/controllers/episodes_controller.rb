@@ -23,10 +23,7 @@ class EpisodesController < ApplicationController
   def create
     @episode = Episode.new(episode_params)
 
-    if @episode.snowy_mountains.to_i < 0 || @episode.snowy_mountains.to_i > 100
-      @episode.errors.add :snowy_mountains, "must be a percentage"
-      render :new
-    elsif @episode.save
+    if @episode.save
       redirect_to @episode, notice: 'Episode was successfully created.'
     else
       render :new
@@ -35,10 +32,7 @@ class EpisodesController < ApplicationController
 
   # PATCH/PUT /episodes/1
   def update
-    if episode_params[:snowy_mountains].to_i < 0 || episode_params[:snowy_mountains].to_i > 100
-      @episode.errors.add :snowy_mountains, "must be a percentage"
-      render :edit
-    elsif @episode.update(episode_params)
+    if @episode.update(episode_params)
       redirect_to @episode, notice: 'Episode was successfully updated.'
     else
       render :edit

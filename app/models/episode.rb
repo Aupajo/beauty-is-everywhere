@@ -7,6 +7,7 @@ class Episode < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   validates_numericality_of :critters, less_than: 4, allow_blank: true
+  validates_numericality_of :snowy_mountains, greater_than_or_equal_to: 0, less_than_or_equal_to: 100, allow_blank: true, message: "must be a percentage"
 
   validate :must_have_friends
 
