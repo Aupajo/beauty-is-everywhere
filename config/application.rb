@@ -22,5 +22,7 @@ module BeautyIsEverywhere
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.quotes = Rails.root.join('config', 'quotes.txt').read.split("\n")
+
+    config.action_view.default_form_builder = 'AppFormBuilder'
   end
 end

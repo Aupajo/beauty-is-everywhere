@@ -30,7 +30,7 @@ RSpec.feature "Episode Alteration", type: :feature do
   scenario 'A user submits an invalid mountain percentage' do
     fill_in 'Mountain', with: '-4'
     click_on 'Update Episode'
-    expect(page).to have_content 'Snowy mountains must be a percentage'
+    expect(page).to have_content 'Mountain % must be a percentage'
   end
 
   scenario 'A user submits an invalid episode' do

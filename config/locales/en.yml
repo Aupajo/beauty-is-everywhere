@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    attributes:
+      episode:
+        snowy_mountains: Mountain %
   errors:
     messages:
       must_have_friends: "gotta have friends. Like I always say, everyone needs a friend."
