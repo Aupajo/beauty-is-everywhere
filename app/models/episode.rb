@@ -14,13 +14,8 @@ class Episode < ActiveRecord::Base
 private
 
   def must_have_friends
-    if critters == 1
-      errors.add :critters, "gotta have friends. Like I always say, everyone needs a friend."
-    end
-
-    if happy_little_trees == 1
-      errors.add :happy_little_trees, "gotta have friends. Like I always say, everyone needs a friend."
-    end
+    errors.add :critters, :must_have_friends if critters == 1
+    errors.add :happy_little_trees, :must_have_friends if happy_little_trees == 1
   end
 
   def check_new_series
